@@ -16,7 +16,8 @@
 
   let identifiers = [
     { character: '#', match: '[0-9]' },
-    { character: 'a', match: '[A-Za-z]' }
+    { character: 'a', match: '[A-Za-z]' },
+    { character: 'h', match: '[0-9a-fA-F]'}
   ];
 
   /**
@@ -264,6 +265,7 @@
     if (match && this.onMatch) this.onMatch(event.target.value);
     if (!match && this.onFail) this.onFail();
     if (!match && this.clearOnFail !== false) event.target.value = '';
+    if (event.target.value == this.placeholder && this.clearOnNoChange !== false) event.target.value = '';
   }
 
   /**
