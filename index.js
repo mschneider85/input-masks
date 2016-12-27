@@ -171,6 +171,12 @@
     let placeholder = this.placeholder;
     let index = findNextIdentifier(mask);
 
+    if (this.selectOnFocus == true) {
+      setTimeout(function () {
+        event.target.setSelectionRange(0, event.target.value.length);
+      }, 100);
+    }
+
     if (event.target.value === '') {
       event.target.value = this.placeholder;
       setCursorPosition(event.target, index);
